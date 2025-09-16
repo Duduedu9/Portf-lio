@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eduardo — Portfólio</title>
+  <meta name="description" content="Portfólio de Eduardo — Desenvolvedor Backend" />
+  <!-- Fonte moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!--
+    INSTRUÇÕES RÁPIDAS (edite este arquivo):
+    - Substitua assets/me.jpg pela sua foto real.
+    - Coloque resume.pdf na raiz (mesma pasta do index.html) se quiser que o botão "Baixar" baixe seu currículo em PDF.
+    - Substitua as imagens de projetos em /assets/projects/ e troque os links de demo/código.
+    - Adicione/remoção de skills alterando a seção #skills (use imagens em /assets/tech/ ou links CDN).
+    - Para publicar na Vercel: crie um repositório, faça push e conecte ao Vercel (instruções no final do documento).
+  -->
+
+<style>
+  :root{
+    --bg-900:#050816;
+    --blue-500:#0b63ff;
+    --blue-400:#0d85ff;
+    --yellow-500:#ffd54f;
+    --glass: rgba(255,255,255,0.04);
+    --glass-2: rgba(255,255,255,0.06);
+    --text:#e6f4ff;
+    --muted:#9fb7d9;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;background:radial-gradient(1200px 600px at 10% 10%, rgba(11,99,255,0.12), transparent), linear-gradient(160deg,var(--bg-900),#071233 60%);color:var(--text);margin:0}
+  a{color:inherit;text-decoration:none}
+
+  /* Header */
+  .site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;position:sticky;top:0;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-bottom:1px solid rgba(255,255,255,0.03);z-index:50}
+  .brand{display:flex;gap:14px;align-items:center}
+  .logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--blue-500),var(--yellow-500));display:flex;align-items:center;justify-content:center;color:#041024;font-weight:800}
+  .brand-text h1{font-size:18px;margin:0}
+  .brand-text p{margin:0;font-size:12px;color:var(--muted)}
+
+  /* Download button */
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;font-weight:600;border:0;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:linear-gradient(90deg,var(--blue-500),var(--blue-400));box-shadow:0 6px 20px rgba(11,99,255,0.12);color:#fff}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+
+  /* Hero */
+  .container{max-width:1100px;margin:32px auto;padding:0 24px}
+  .hero{display:flex;gap:28px;align-items:center;justify-content:space-between;padding:34px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02)}
+  .profile{display:flex;gap:20px;align-items:center}
+  .avatar{width:150px;height:150px;border-radius:50%;object-fit:cover;border:6px solid rgba(255,255,255,0.04);padding:6px;background:linear-gradient(135deg,var(--blue-400),var(--yellow-500));box-shadow:0 10px 30px rgba(11,99,255,0.12)}
+  .hero-info h2{margin:0;font-size:26px}
+  .hero-info p{color:var(--muted);margin:8px 0 0}
+  .hero-cta{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+
+  /* Sobre */
+  section{margin-top:28px}
+  .card{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.03)}
+  h2{font-size:20px;margin:0 0 12px}
+  p.lead{color:var(--muted);margin:0}
+
+  /* Skills */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:12px}
+  .skill{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);transition:transform .18s ease, box-shadow .18s ease}
+  .skill img{width:46px;height:46px;filter:drop-shadow(0 6px 20px rgba(2,6,23,0.45))}
+  .skill span{font-size:13px;color:var(--muted)}
+  .skill:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(11,99,255,0.08)}
+
+  /* Projects */
+  .tabs{display:flex;gap:8px;margin-bottom:14px}
+  .tabs button{background:transparent;border:0;padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
+  .tabs button.active{background:linear-gradient(90deg,var(--blue-500),var(--blue-400));color:#041024}
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .project-card{border-radius:12px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease}
+  .project-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(2,6,23,0.6)}
+  .project-card .thumb{aspect-ratio:16/9;overflow:hidden;background:#03102a}
+  .project-card .thumb img, .project-card .thumb video{width:100%;height:100%;object-fit:cover;display:block}
+  .project-info{padding:14px}
+  .project-info h3{margin:0 0 6px}
+  .project-info p{margin:0 0 12px;color:var(--muted);font-size:14px}
+  .techs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+  .techs span{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+  .project-actions{display:flex;gap:8px}
+
+  /* Footer */
+  footer{margin:40px 0 80px;text-align:center;color:var(--muted)}
+
+  /* Responsividade */
+  @media (max-width:880px){
+    .hero{flex-direction:column;align-items:flex-start}
+    .hero-cta{align-items:flex-start}
+    .avatar{width:120px;height:120px}
+  }
+
+  /* Pequena animação futurista */
+  .neon{position:relative}
+  .neon::after{content:"";position:absolute;inset:0;border-radius:14px;pointer-events:none;box-shadow:0 0 60px rgba(11,99,255,0.06), 0 0 120px rgba(255,213,79,0.02)}
+</style>
+</head>
+<body>
+  <header class="site-header container" role="banner">
+    <div class="brand">
+      <!-- <div class="logo">ED</div> -->
+      <!-- <div class="brand-text">
+        <h1>Eduardo</h1>
+        <p>Desenvolvedor Backend</p> -->
+      <!-- </div> -->
+    </div>
+
+    <!-- Botão de download: se existir /resume.pdf será baixado; senão, baixa uma cópia HTML do próprio site -->
+    <button id="downloadBtn" class="btn btn-primary" aria-label="Baixar portfólio">
+      <!-- ícone simples -->
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+        <path d="M12 3v12" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M8 11l4 4 4-4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M21 21H3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      Baixar CV
+    </button>
+  </header>
+
+  <main class="container" id="main">
+    <!-- HERO -->
+    <section class="hero neon" aria-labelledby="hero-title">
+      <div class="profile">
+        <!-- Substitua 'assets/me.jpg' pela sua foto -->
+        <img class="avatar" src="/edu.png" alt="Foto de Eduardo (substitua em /assets/me.jpg)">
+        <div class="hero-info">
+          <h2 id="hero-title">Eduardo — Desenvolvedor Backend</h2>
+          <p class="lead">Sou desenvolvedor backend focado em criar APIs robustas e automações com Python. Gosto de arquitetar sistemas escaláveis e confiáveis.</p>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <a href="#projetos" class="btn btn-ghost">Ver Projetos</a>
+            <a href="#contato" class="btn">Contato</a>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:420px;text-align:right;color:var(--muted)">
+        <p style="margin:0 0 8px">Especialidades</p>
+        <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
+          <div class="skill" style="width:auto;padding:8px 10px;border-radius:8px;">Python</div>
+          <div class="skill" style="width:auto;padding:8px 10px;border-radius:8px;">Django</div>
+          <div class="skill" style="width:auto;padding:8px 10px;border-radius:8px;">Docker</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MIM -->
+    <section id="sobre" class="card" aria-labelledby="sobre-title">
+      <h2 id="sobre-title">Sobre Mim</h2>
+      <p class="lead">Atuo profissionalmente como desenvolvedor Python desde 2021. Minha transição de carreira, da gestão de serviços para a tecnologia, foi motivada pelo fascínio que tenho com o impacto que a tecnologia tem sobre a vida das pessoas. Como desenvolvedor backend, meu foco é na criação de APIs REST, utilizando principalmente os frameworks Flask e Django. Ao longo da minha carreira, também ganhei experiência com automações de processos, criação de bots e web scraping, atuando em projetos diversos.</p>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="skills" class="card" aria-labelledby="skills-title">
+      <h2 id="skills-title">Habilidades</h2>
+      <p class="lead">Tecnologias que uso com frequência.</p>
+      <div class="skills-grid" style="margin-top:16px">
+        <!-- Exemplo usando CDN - você pode trocar para /assets/tech/python.svg -->
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo">
+          <span>Python</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django logo">
+          <span>Django</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker logo">
+          <span>Docker</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS logo">
+          <span>JavaScript</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 logo">
+          <span>HTML</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 logo">
+          <span>CSS</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask logo">
+          <span>Flask</span>
+        </div>
+        <div class="skill">
+          <img src="https://api.iconify.design/tabler:robot.svg" alt="Ícone de robô para automação">
+          <span>Web Scraping</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANCOS DE DADOS -->
+<section id="databases" class="card" aria-labelledby="databases-title">
+  <h2 id="databases-title">Bancos de Dados</h2>
+  <p class="lead">Bancos de dados que já utilizei em projetos.</p>
+  <div class="skills-grid" style="margin-top:16px">
+    <div class="skill">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL logo">
+      <span>PostgreSQL</span>
+    </div>
+    <div class="skill">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis logo">
+      <span>Redis</span>
+    </div>
+    <div class="skill">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite logo">
+      <span>SQLite</span>
+    </div>
+    <div class="skill">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB logo">
+      <span>MongoDB</span>
+    </div>
+    <div class="skill">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL logo">
+      <span>MySQL</span>
+    </div>
+  </div>
+</section>
+
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="card" aria-labelledby="projetos-title">
+      <h2 id="projetos-title">Projetos</h2>
+
+      <div class="tabs" role="tablist" aria-label="Filtrar projetos">
+        <button data-tab="trabalhos" class="active" role="tab" aria-selected="true">Profissionais</button>
+        <button data-tab="pessoais" role="tab">Pessoais</button>
+      </div>
+
+      <div id="projects-grid" class="projects-grid">
+        <!-- Projeto exemplo. Copie/duplique esta estrutura para adicionar mais. -->
+        <article class="project-card" data-type="trabalhos">
+          <div class="thumb">
+            <img src="/essence.png" alt="Imagem do Projeto 1 (substitua em /assets/projects/proj1.png)">
+          </div>
+          <div class="project-info">
+            <h3>Essence - Solução Web para Clínica de Saúde Mental</h3>
+            <p>Django + Celery para processamento assíncrono; deploy em Docker.</p>
+            <div class="techs"><span>Python</span><span>Django</span><span>Redis</span><span>Docker</span></div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://essencesaudefeira.com/" target="_blank" rel="noopener">Ver Demo</a>
+              <a class="btn btn-ghost" href="https://github.com/Duduedu9" target="_blank" rel="noopener">Código</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projeto pessoal exemplo -->
+        <article class="project-card" data-type="trabalhos">
+          <div class="thumb">
+            <img src="/falatu.png" alt="Imagem do Projeto 2 (substitua)">
+          </div>
+          <div class="project-info">
+            <h3>Plataforma de Automação e CRM via WhatsApp</h3>
+            <p>Desenvolvimento de um sistema de gestão de clientes que integra a API do WhatsApp para centralizar e automatizar o atendimento.</p>
+            <div class="techs"><span>TypeScript</span><span>JavaScript</span><span>Docker</span></div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://app.falatu.app/login" target="_blank" rel="noopener">Ver Demo</a>
+              <a class="btn btn-ghost" href="https://github.com/Duduedu9" target="_blank" rel="noopener">Código</a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card" data-type="pessoais">
+          <div class="thumb">
+            <video src="/ZULN - Espelhos - Google Chrome 2025-09-16 13-00-50.mp4" autoplay muted loop playsinline></video>
+          </div>
+          <div class="project-info">
+            <h3>E-commerce de Espelhos Zuln</h3>
+            <p>Criação de um site institucional moderno para a loja, incluindo galeria de produtos, informações de contato e um design responsivo.</p>
+            <div class="techs">
+              <span>HTML</span><span>CSS</span><span>JS</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://github.com/Duduedu9/" target="_blank" rel="noopener">Ver Demo</a>
+              <a class="btn btn-ghost" href="https://github.com/Duduedu9/Loja-espelhos-Zuln" target="_blank" rel="noopener">Código</a>
+            </div>
+          </div>
+        </article>
+       
+        <article class="project-card" data-type="pessoais">
+          <div class="thumb">
+            <img src="/licita.png" ></img>
+          </div>
+          <div class="project-info">
+            <h3>Bot de Notificação PNCP (API do Governo Federal)</h3>
+            <p>bot com intuito de pegar dados da api  pncp, do Governo federal , para enviar alertas de notificações no whatsapp de 1 em 1 hora , com filtros de brinquedos e livros.</p>
+            <div class="techs">
+              <span>Python</span><span>TWILLO</span><span>Dramaturgo</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://github.com/Duduedu9/" target="_blank" rel="noopener">Ver Demo</a>
+              <a class="btn btn-ghost" href="https://github.com/Duduedu9/Loja-espelhos-Zuln" target="_blank" rel="noopener">Código</a>
+            </div>
+          </div>
+        </article>
+
+                <article class="project-card" data-type="trabalhos">
+          <div class="thumb">
+            <img src="/LP.png" ></img>
+          </div>
+          <div class="project-info">
+            <h3>Landing Page para o CRM FalaTU</h3>
+            <p>Desenvolvimento de uma landing page otimizada para capturar leads, com design atraente e informações claras sobre o CRM de atendimento via WhatsApp.</p>
+            <div class="techs">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://falatu.app/" target="_blank" rel="noopener">Ver Demo</a>
+              <a class="btn btn-ghost" href="https://github.com/GRE-Inovation/LandinPage_FalaTU" target="_blank" rel="noopener">Código</a>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+
+    <!-- CONTATO / RODAPÉ -->
+    <section id="contato" class="card" aria-labelledby="contato-title" style="margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+      <div>
+        <h2 id="contato-title">Quer conversar?</h2>
+        <p class="lead">Me mande um e-mail ou mensagem — sempre aberto a novos projetos e oportunidades.</p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn btn-primary" href="mailto:Eduardo_bizerra@hotmail.com">Enviar e-mail</a>
+        <a class="btn btn-ghost" href="https://wa.me/5575992494524" target="_blank">WhatsApp</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Eduardo — Desenvolvedor Backend</p>
+    </footer>
+  </main>
+
+<script>
+  // TABS PROJETOS
+  (function(){
+    const tabs = document.querySelectorAll('.tabs button');
+    const cards = document.querySelectorAll('.project-card');
+    tabs.forEach(btn => btn.addEventListener('click', () => {
+      tabs.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const tab = btn.dataset.tab;
+      cards.forEach(c => {
+        if(c.dataset.type === tab) c.style.display = '';
+        else c.style.display = 'none';
+      });
+    }));
+  })();
+
+  // BOTÃO DE DOWNLOAD: tenta baixar /resume.pdf, se não existir, baixa o HTML atual
+  document.getElementById('downloadBtn').addEventListener('click', async function(){
+    const resumeUrl = '/resume.pdf';
+    try{
+      // tenta verificar se resume.pdf existe (mesma origem)
+      const res = await fetch(resumeUrl, {method:'HEAD'});
+      if(res.ok){
+        // redireciona para download
+        window.location.href = resumeUrl;
+        return;
+      }
+    }catch(e){/* falhou, vai para fallback */}
+
+    // fallback: baixa o HTML atual como arquivo
+    const html = '<!doctype html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'eduardo-portfolio.html';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+  // Lazy-load images simples (progressive enhancement)
+  (function(){
+    const imgs = document.querySelectorAll('img');
+    if('loading' in HTMLImageElement.prototype){
+      imgs.forEach(img=>img.setAttribute('loading','lazy'));
+    } else {
+      // polyfill: nada pesado - para sites estáticos geralmente OK
+    }
+  })();
+
+  // Pequena melhoria: se quiser adicionar projetos no futuro, mantenha a estrutura <article.project-card data-type="trabalhos|pessoais"> ...</script>
+</script>
+</body>
+</html>
