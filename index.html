@@ -3,8 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#050816" />
+  <meta name="description" content="Portfólio de Eduardo — Desenvolvedor Backend especializado em APIs, automações e soluções escaláveis." />
+  <meta property="og:title" content="Eduardo — Portfólio" />
+  <meta property="og:description" content="Portfólio de Eduardo — Desenvolvedor Backend especializado em APIs, automações e soluções escaláveis." />
+  <meta property="og:type" content="website" />
   <title>Eduardo — Portfólio</title>
-  <meta name="description" content="Portfólio de Eduardo — Desenvolvedor Backend" />
   <!-- Fonte moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -30,11 +34,20 @@
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   html,body{height:100%;background:radial-gradient(1200px 600px at 10% 10%, rgba(11,99,255,0.12), transparent), linear-gradient(160deg,var(--bg-900),#071233 60%);color:var(--text);margin:0}
   a{color:inherit;text-decoration:none}
 
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *, *::before, *::after{transition:none!important;animation:none!important}
+  }
+
   /* Header */
-  .site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;position:sticky;top:0;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-bottom:1px solid rgba(255,255,255,0.03);z-index:50}
+  .site-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 28px;position:sticky;top:0;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-bottom:1px solid rgba(255,255,255,0.03);z-index:50}
+  .top-nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .top-nav a{color:var(--muted);font-size:14px;padding:6px 8px;border-radius:999px}
+  .top-nav a:hover{color:var(--text);background:rgba(255,255,255,0.04)}
   .brand{display:flex;gap:14px;align-items:center}
   .logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--blue-500),var(--yellow-500));display:flex;align-items:center;justify-content:center;color:#041024;font-weight:800}
   .brand-text h1{font-size:18px;margin:0}
@@ -51,9 +64,61 @@
   .hero{display:flex;gap:28px;align-items:center;justify-content:space-between;padding:34px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02)}
   .profile{display:flex;gap:20px;align-items:center}
   .avatar{width:150px;height:150px;border-radius:50%;object-fit:cover;border:6px solid rgba(255,255,255,0.04);padding:6px;background:linear-gradient(135deg,var(--blue-400),var(--yellow-500));box-shadow:0 10px 30px rgba(11,99,255,0.12)}
-  .hero-info h2{margin:0;font-size:26px}
-  .hero-info p{color:var(--muted);margin:8px 0 0}
-  .hero-cta{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+  .hero-info h2{margin:0;font-size:26px;line-height:1.2}
+  .hero-info p{color:var(--muted);margin:8px 0 0;max-width:650px;line-height:1.6}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .hero-side{min-width:220px;text-align:right}
+  .hero-side p{margin:0 0 8px;color:var(--muted)}
+  .hero-tags{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+  .hero-tags .skill{width:auto;padding:8px 10px;border-radius:8px}
+  .hero-cta a{white-space:nowrap}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .project-actions{display:flex;gap:8px;flex-wrap:wrap}
+  .project-actions a{flex:1 1 auto;justify-content:center}
+  .project-card{min-width:0}
+  .project-info h3{font-size:18px}
+  .project-info p{font-size:13px}
+  .btn{font-size:14px}
+  .skill span{font-size:12px}
+  .hero-side{min-width:auto}
+  .stat-grid{grid-template-columns:repeat(auto-fit,minmax(120px,1fr));}
+  .mini-card{padding:12px}
+  .project-card .thumb{min-height:180px}
+  .site-header{flex-wrap:wrap}
+  .top-nav{justify-content:center}
+  .site-header .btn{width:100%;max-width:220px}
+  .hero{gap:20px}
+  .container{padding:0 16px}
+  @media (max-width:880px){
+    .hero{flex-direction:column;align-items:flex-start}
+    .hero-cta{align-items:flex-start}
+    .avatar{width:120px;height:120px}
+    .hero-side{text-align:left;width:100%}
+    .top-nav{width:100%;justify-content:flex-start}
+    .site-header{padding:16px}
+    .tabs button{flex:1 1 auto;text-align:center}
+    .project-actions{flex-direction:column}
+    .project-actions a{width:100%}
+    .skills-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+    .project-card .thumb{aspect-ratio:4/3}
+    .hero-info p{max-width:none}
+    .hero-info h2{font-size:24px}
+  }
+  @media (max-width:600px){
+    .site-header{justify-content:center}
+    .brand{width:100%;justify-content:center}
+    .top-nav{order:3;gap:10px}
+    .btn{width:100%}
+    .hero{padding:24px}
+    .hero-info h2{font-size:22px}
+    .container{margin:24px auto}
+    .card{padding:18px}
+    .project-info{padding:12px}
+    .project-info h3{font-size:16px}
+    .project-info p{font-size:13px}
+  }
+  .mini-card strong{display:block;font-size:18px;margin-bottom:4px}
+  .mini-card span{font-size:13px;color:var(--muted)}
 
   /* Sobre */
   section{margin-top:28px}
@@ -102,16 +167,21 @@
 <body>
   <header class="site-header container" role="banner">
     <div class="brand">
-      <!-- <div class="logo">ED</div> -->
-      <!-- <div class="brand-text">
+      <div class="logo">ED</div>
+      <div class="brand-text">
         <h1>Eduardo</h1>
-        <p>Desenvolvedor Backend</p> -->
-      <!-- </div> -->
+        <p>Desenvolvedor Backend</p>
+      </div>
     </div>
 
-    <!-- Botão de download: se existir /resume.pdf será baixado; senão, baixa uma cópia HTML do próprio site -->
+    <nav class="top-nav" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#skills">Skills</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
     <button id="downloadBtn" class="btn btn-primary" aria-label="Baixar portfólio">
-      <!-- ícone simples -->
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
         <path d="M12 3v12" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
         <path d="M8 11l4 4 4-4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -125,23 +195,22 @@
     <!-- HERO -->
     <section class="hero neon" aria-labelledby="hero-title">
       <div class="profile">
-        <!-- Substitua 'assets/me.jpg' pela sua foto -->
-        <img class="avatar" src="/edu.png" alt="Foto de Eduardo (substitua em /assets/me.jpg)">
+        <img class="avatar" src="/edu.png" alt="Foto de Eduardo">
         <div class="hero-info">
           <h2 id="hero-title">Eduardo — Desenvolvedor Backend</h2>
           <p class="lead">Sou desenvolvedor backend focado em criar APIs robustas e automações com Python. Gosto de arquitetar sistemas escaláveis e confiáveis.</p>
-          <div style="margin-top:12px;display:flex;gap:8px">
+          <div class="hero-cta">
             <a href="#projetos" class="btn btn-ghost">Ver Projetos</a>
             <a href="#contato" class="btn">Contato</a>
           </div>
         </div>
       </div>
-      <div style="max-width:420px;text-align:right;color:var(--muted)">
-        <p style="margin:0 0 8px">Especialidades</p>
-        <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
-          <div class="skill" style="width:auto;padding:8px 10px;border-radius:8px;">Python</div>
-          <div class="skill" style="width:auto;padding:8px 10px;border-radius:8px;">Django</div>
-          <div class="skill" style="width:auto;padding:8px 10px;border-radius:8px;">Docker</div>
+      <div class="hero-side">
+        <p>Especialidades</p>
+        <div class="hero-tags">
+          <div class="skill">Python</div>
+          <div class="skill">Django</div>
+          <div class="skill">Docker</div>
         </div>
       </div>
     </section>
@@ -149,7 +218,8 @@
     <!-- SOBRE MIM -->
     <section id="sobre" class="card" aria-labelledby="sobre-title">
       <h2 id="sobre-title">Sobre Mim</h2>
-      <p class="lead">Atuo profissionalmente como desenvolvedor Python desde 2021. Minha transição de carreira, da gestão de serviços para a tecnologia, foi motivada pelo fascínio que tenho com o impacto que a tecnologia tem sobre a vida das pessoas. Como desenvolvedor backend, meu foco é na criação de APIs REST, utilizando principalmente os frameworks Flask e Django. Ao longo da minha carreira, também ganhei experiência com automações de processos, criação de bots e web scraping, atuando em projetos diversos.</p>
+      <p class="lead">Atuo profissionalmente com desenvolvimento backend desde 2021, trazendo uma visão prática de negócios, automação e tecnologia. Minha transição da gestão de serviços para a área de software aconteceu por conta do impacto direto que a tecnologia pode ter na rotina das pessoas e nas operações das empresas.</p>
+      <p class="lead" style="margin-top:10px">Hoje, meu trabalho concentra-se em criar APIs robustas, integrações confiáveis e fluxos automatizados com Python, Django, Flask e ferramentas modernas de infraestrutura.</p>
     </section>
 
     <!-- HABILIDADES -->
@@ -232,7 +302,22 @@
       </div>
 
       <div id="projects-grid" class="projects-grid">
-        <!-- Projeto exemplo. Copie/duplique esta estrutura para adicionar mais. -->
+        <!-- VivaMais project added to the top -->
+        <article class="project-card" data-type="trabalhos">
+          <div class="thumb">
+            <img src="/Portf-lio\vivamais.png" alt="Imagem do projeto VivaMais" loading="lazy">
+          </div>
+          <div class="project-info">
+            <h3>VivaMais — Plataforma de atendimento médico digital</h3>
+            <p>Integração Asaas, Twilio/WhatsApp, Celery + Redis para tarefas assíncronas, OneSignal para push e chat nativo do site.</p>
+            <div class="techs"><span>Python</span><span>Celery</span><span>Redis</span><span>Twilio</span><span>OneSignal</span><span>Asaas</span></div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://vivamais.ai/" target="_blank" rel="noopener">Ver Demo</a>
+              <a class="btn btn-ghost" href="https://github.com/Duduedu9" target="_blank" rel="noopener">Código</a>
+            </div>
+          </div>
+        </article>
+
         <article class="project-card" data-type="trabalhos">
           <div class="thumb">
             <img src="/essence.png" alt="Imagem do Projeto 1 (substitua em /assets/projects/proj1.png)">
@@ -330,11 +415,13 @@
     </section>
 
     <footer>
-      <p>© 2025 Eduardo — Desenvolvedor Backend</p>
+      <p>© <span id="year"></span> Eduardo — Desenvolvedor Backend</p>
     </footer>
   </main>
 
 <script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
   // TABS PROJETOS
   (function(){
     const tabs = document.querySelectorAll('.tabs button');
