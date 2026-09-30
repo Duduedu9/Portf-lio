@@ -1,13 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#050816" />
-  <meta name="description" content="Portfólio de Eduardo — Desenvolvedor Backend especializado em APIs, automações e soluções escaláveis." />
-  <meta property="og:title" content="Eduardo — Portfólio" />
-  <meta property="og:description" content="Portfólio de Eduardo — Desenvolvedor Backend especializado em APIs, automações e soluções escaláveis." />
-  <meta property="og:type" content="website" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Portfólio de Eduardo — Desenvolvedor Backend especializado em APIs, automações e soluções escaláveis.">
+  <meta property="og:title" content="Eduardo — Portfólio">
+  <meta property="og:description" content="Portfólio de Eduardo — Desenvolvedor Backend especializado em APIs, automações e soluções escaláveis.">
+  <meta property="og:type" content="website">
   <title>Eduardo — Portfólio</title>
   <!-- Fonte moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -23,19 +23,19 @@
 
 <style>
   :root{
-    --bg-900:#050816;
-    --blue-500:#0b63ff;
-    --blue-400:#0d85ff;
+    --bg-900:#000000;
+    --blue-500:#000000;
+    --blue-400:#080808;
     --yellow-500:#ffd54f;
     --glass: rgba(255,255,255,0.04);
     --glass-2: rgba(255,255,255,0.06);
-    --text:#e6f4ff;
-    --muted:#9fb7d9;
+    --text:#ffffff;
+    --muted:#c7c7c7;
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  html,body{height:100%;background:radial-gradient(1200px 600px at 10% 10%, rgba(11,99,255,0.12), transparent), linear-gradient(160deg,var(--bg-900),#071233 60%);color:var(--text);margin:0}
+  html,body{height:100%;background:radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,0.025), transparent), linear-gradient(160deg,var(--bg-900),#030303 60%);color:var(--text);margin:0}
   a{color:inherit;text-decoration:none}
 
   @media (prefers-reduced-motion: reduce){
@@ -44,34 +44,39 @@
   }
 
   /* Header */
-  .site-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 28px;position:sticky;top:0;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-bottom:1px solid rgba(255,255,255,0.03);z-index:50}
-  .top-nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-  .top-nav a{color:var(--muted);font-size:14px;padding:6px 8px;border-radius:999px}
-  .top-nav a:hover{color:var(--text);background:rgba(255,255,255,0.04)}
-  .brand{display:flex;gap:14px;align-items:center}
-  .logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--blue-500),var(--yellow-500));display:flex;align-items:center;justify-content:center;color:#041024;font-weight:800}
-  .brand-text h1{font-size:18px;margin:0}
-  .brand-text p{margin:0;font-size:12px;color:var(--muted)}
+  .site-header.container{display:flex;align-items:center;width:max-content;max-width:calc(100% - 32px);margin:14px auto 24px;padding:5px;position:sticky;top:14px;backdrop-filter:blur(14px);background:rgba(8,8,8,0.92);border:1px solid rgba(255,213,79,0.18);border-radius:999px;box-shadow:0 12px 40px rgba(0,0,0,0.45);z-index:50}
+  .top-nav{display:flex;gap:3px;align-items:center;flex-wrap:nowrap;min-width:0}
+  .top-nav a{flex:0 0 auto;color:var(--muted);font-size:13px;font-weight:600;padding:11px 16px;border-radius:999px;transition:color .18s ease,background .18s ease}
+  .top-nav a:hover{color:var(--text);background:rgba(255,255,255,0.05)}
+  .top-nav a.active{color:#fff;background:rgba(255,255,255,0.08)}
+  .nav-download{display:inline-flex;align-items:center;gap:7px;flex:0 0 auto;margin-left:3px;padding:11px 17px;border:0;border-radius:999px;background:var(--yellow-500);color:#090909;font:inherit;font-size:13px;font-weight:800;cursor:pointer;transition:transform .18s ease,filter .18s ease}
+  .nav-download:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .nav-download:active{transform:translateY(0)}
 
   /* Download button */
   .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;font-weight:600;border:0;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
   .btn:active{transform:translateY(1px)}
-  .btn-primary{background:linear-gradient(90deg,var(--blue-500),var(--blue-400));box-shadow:0 6px 20px rgba(11,99,255,0.12);color:#fff}
+  .btn-primary{background:linear-gradient(90deg,var(--blue-500),var(--blue-400));box-shadow:0 6px 20px rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.14);color:#fff}
   .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
 
   /* Hero */
   .container{max-width:1100px;margin:32px auto;padding:0 24px}
-  .hero{display:flex;gap:28px;align-items:center;justify-content:space-between;padding:34px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02)}
-  .profile{display:flex;gap:20px;align-items:center}
-  .avatar{width:150px;height:150px;border-radius:50%;object-fit:cover;border:6px solid rgba(255,255,255,0.04);padding:6px;background:linear-gradient(135deg,var(--blue-400),var(--yellow-500));box-shadow:0 10px 30px rgba(11,99,255,0.12)}
-  .hero-info h2{margin:0;font-size:26px;line-height:1.2}
-  .hero-info p{color:var(--muted);margin:8px 0 0;max-width:650px;line-height:1.6}
-  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-  .hero-side{min-width:220px;text-align:right}
-  .hero-side p{margin:0 0 8px;color:var(--muted)}
-  .hero-tags{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
-  .hero-tags .skill{width:auto;padding:8px 10px;border-radius:8px}
-  .hero-cta a{white-space:nowrap}
+  .hero{display:flex;align-items:center;justify-content:center;padding:22px 28px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(0,0,0,0.6);border:1px solid rgba(255,213,79,0.10)}
+  .profile{display:flex;gap:28px;align-items:center}
+  .avatar{width:110px;height:110px;flex:0 0 auto;border-radius:50%;object-fit:cover;border:2px solid var(--yellow-500);padding:0;background:none;box-shadow:0 10px 30px rgba(0,0,0,0.55)}
+  .hero-info{min-width:0}
+  .hero-info h2{margin:0;font-size:clamp(38px,5vw,52px);line-height:1;font-weight:800}
+  .hero-role{margin:8px 0 0;color:var(--muted);font-size:clamp(18px,2.2vw,24px);font-weight:600;white-space:nowrap}
+
+  /* Faixa animada de habilidades */
+  .skills-marquee{margin-top:20px;overflow:hidden;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);background:#000;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .skills-marquee-track{display:flex;width:max-content;padding:16px 0;animation:skills-scroll 28s linear infinite;will-change:transform}
+  .skills-marquee:hover .skills-marquee-track{animation-play-state:paused}
+  .skills-marquee-group{display:flex;align-items:center;gap:34px;margin:0;padding:0 34px 0 0;list-style:none}
+  .skills-marquee-item{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:14px;font-weight:600;white-space:nowrap}
+  .skills-marquee-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--yellow-500);box-shadow:0 0 8px rgba(255,213,79,0.45)}
+  @keyframes skills-scroll{to{transform:translateX(-50%)}}
+
   .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
   .project-actions{display:flex;gap:8px;flex-wrap:wrap}
   .project-actions a{flex:1 1 auto;justify-content:center}
@@ -80,37 +85,32 @@
   .project-info p{font-size:13px}
   .btn{font-size:14px}
   .skill span{font-size:12px}
-  .hero-side{min-width:auto}
   .stat-grid{grid-template-columns:repeat(auto-fit,minmax(120px,1fr));}
   .mini-card{padding:12px}
   .project-card .thumb{min-height:180px}
-  .site-header{flex-wrap:wrap}
-  .top-nav{justify-content:center}
-  .site-header .btn{width:100%;max-width:220px}
   .hero{gap:20px}
   .container{padding:0 16px}
   @media (max-width:880px){
-    .hero{flex-direction:column;align-items:flex-start}
-    .hero-cta{align-items:flex-start}
-    .avatar{width:120px;height:120px}
-    .hero-side{text-align:left;width:100%}
-    .top-nav{width:100%;justify-content:flex-start}
-    .site-header{padding:16px}
+    .avatar{width:90px;height:90px}
+    .site-header.container{max-width:calc(100% - 20px);margin:10px auto 20px;top:10px;overflow:hidden}
+    .top-nav{max-width:100%;overflow-x:auto;scrollbar-width:none}
+    .top-nav::-webkit-scrollbar{display:none}
     .tabs button{flex:1 1 auto;text-align:center}
     .project-actions{flex-direction:column}
     .project-actions a{width:100%}
     .skills-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
     .project-card .thumb{aspect-ratio:4/3}
-    .hero-info p{max-width:none}
-    .hero-info h2{font-size:24px}
+    .skills-marquee-group{gap:24px;padding-right:24px}
   }
   @media (max-width:600px){
-    .site-header{justify-content:center}
-    .brand{width:100%;justify-content:center}
-    .top-nav{order:3;gap:10px}
+    .top-nav a{padding:10px 13px;font-size:12px}
+    .nav-download{padding:10px 14px;font-size:12px}
     .btn{width:100%}
-    .hero{padding:24px}
-    .hero-info h2{font-size:22px}
+    .hero{padding:18px}
+    .profile{gap:15px}
+    .avatar{width:78px;height:78px}
+    .hero-info h2{font-size:32px}
+    .hero-role{margin-top:5px;font-size:15px;white-space:normal}
     .container{margin:24px auto}
     .card{padding:18px}
     .project-info{padding:12px}
@@ -121,25 +121,44 @@
   .mini-card span{font-size:13px;color:var(--muted)}
 
   /* Sobre */
-  section{margin-top:28px}
-  .card{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.03)}
+  section{margin-top:28px;scroll-margin-top:92px}
+  .card{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid rgba(255,213,79,0.09)}
   h2{font-size:20px;margin:0 0 12px}
+  .card > h2{display:flex;align-items:center;gap:10px}
+  .card > h2::before{content:"";width:3px;height:1em;flex:0 0 auto;border-radius:999px;background:var(--yellow-500);box-shadow:0 0 10px rgba(255,213,79,0.25)}
   p.lead{color:var(--muted);margin:0}
+  p.lead + p.lead{margin-top:10px}
+
+  /* Orçamento */
+  .quote-card{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 28px;overflow:hidden;background:radial-gradient(circle at 90% 20%,rgba(255,213,79,0.09),transparent 35%),#050505;border-color:rgba(255,213,79,0.16)}
+  .quote-copy{max-width:680px}
+  .quote-kicker{display:block;margin-bottom:8px;color:var(--yellow-500);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+  .quote-card h2{font-size:22px;margin-bottom:8px}
+  .quote-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;flex:0 0 auto;padding:12px 18px;border-radius:999px;background:var(--yellow-500);color:#090909;font-size:14px;font-weight:800;box-shadow:0 10px 26px rgba(0,0,0,0.4);transition:transform .18s ease,filter .18s ease}
+  .quote-button:hover{filter:brightness(1.08);transform:translateY(-2px)}
+  @media (max-width:880px){
+    .quote-card{align-items:flex-start;flex-direction:column}
+  }
+  @media (max-width:600px){
+    .quote-card{padding:22px 20px}
+    .quote-button{width:100%}
+  }
 
   /* Skills */
-  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:12px}
-  .skill{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);transition:transform .18s ease, box-shadow .18s ease}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:16px}
+  .skill{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease}
   .skill img{width:46px;height:46px;filter:drop-shadow(0 6px 20px rgba(2,6,23,0.45))}
+  .skill img[src*="/django/"],.skill img[src*="/flask/"]{filter:brightness(0) invert(1) drop-shadow(0 6px 20px rgba(0,0,0,0.45))}
   .skill span{font-size:13px;color:var(--muted)}
-  .skill:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(11,99,255,0.08)}
+  .skill:hover{transform:translateY(-6px);border-color:rgba(255,213,79,0.24);box-shadow:0 20px 40px rgba(0,0,0,0.55)}
 
   /* Projects */
   .tabs{display:flex;gap:8px;margin-bottom:14px}
   .tabs button{background:transparent;border:0;padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
-  .tabs button.active{background:linear-gradient(90deg,var(--blue-500),var(--blue-400));color:#041024}
+  .tabs button.active{background:linear-gradient(90deg,var(--blue-500),var(--blue-400));border:1px solid rgba(255,255,255,0.14);color:#fff}
   .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-  .project-card{border-radius:12px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease}
-  .project-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(2,6,23,0.6)}
+  .project-card{border-radius:12px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease}
+  .project-card:hover{transform:translateY(-8px);border-color:rgba(255,213,79,0.24);box-shadow:0 24px 60px rgba(0,0,0,0.6)}
   .project-card .thumb{aspect-ratio:16/9;overflow:hidden;background:#03102a}
   .project-card .thumb img, .project-card .thumb video{width:100%;height:100%;object-fit:cover;display:block}
   .project-info{padding:14px}
@@ -152,81 +171,98 @@
   /* Footer */
   footer{margin:40px 0 80px;text-align:center;color:var(--muted)}
 
-  /* Responsividade */
-  @media (max-width:880px){
-    .hero{flex-direction:column;align-items:flex-start}
-    .hero-cta{align-items:flex-start}
-    .avatar{width:120px;height:120px}
-  }
-
   /* Pequena animação futurista */
   .neon{position:relative}
-  .neon::after{content:"";position:absolute;inset:0;border-radius:14px;pointer-events:none;box-shadow:0 0 60px rgba(11,99,255,0.06), 0 0 120px rgba(255,213,79,0.02)}
+  .neon::after{content:"";position:absolute;inset:0;border-radius:14px;pointer-events:none;box-shadow:0 0 60px rgba(0,0,0,0.65), 0 0 120px rgba(255,213,79,0.02)}
 </style>
 </head>
 <body>
-  <header class="site-header container" role="banner">
-    <div class="brand">
-      <div class="logo">ED</div>
-      <div class="brand-text">
-        <h1>Eduardo</h1>
-        <p>Desenvolvedor Backend</p>
-      </div>
-    </div>
-
+  <header class="site-header container">
     <nav class="top-nav" aria-label="Navegação principal">
+      <a href="#inicio" class="active" aria-current="page">Início</a>
       <a href="#sobre">Sobre</a>
-      <a href="#skills">Skills</a>
+      <a href="#skills">Habilidades</a>
       <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
+      <a href="#contato">Orçamento</a>
+      <button id="downloadBtn" class="nav-download" type="button" aria-label="Baixar currículo">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="M12 3v12M8 11l4 4 4-4M21 21H3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        Baixar CV
+      </button>
     </nav>
-
-    <button id="downloadBtn" class="btn btn-primary" aria-label="Baixar portfólio">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
-        <path d="M12 3v12" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
-        <path d="M8 11l4 4 4-4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
-        <path d="M21 21H3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
-      </svg>
-      Baixar CV
-    </button>
   </header>
 
   <main class="container" id="main">
     <!-- HERO -->
-    <section class="hero neon" aria-labelledby="hero-title">
+    <section id="inicio" class="hero neon" aria-labelledby="hero-title">
       <div class="profile">
-        <img class="avatar" src="/edu.png" alt="Foto de Eduardo">
+        <img class="avatar" src="edu.png" alt="Foto de Eduardo">
         <div class="hero-info">
-          <h2 id="hero-title">Eduardo — Desenvolvedor Backend</h2>
-          <p class="lead">Sou desenvolvedor backend focado em criar APIs robustas e automações com Python. Gosto de arquitetar sistemas escaláveis e confiáveis.</p>
-          <div class="hero-cta">
-            <a href="#projetos" class="btn btn-ghost">Ver Projetos</a>
-            <a href="#contato" class="btn">Contato</a>
-          </div>
+          <h2 id="hero-title">Eduardo</h2>
+          <p class="hero-role">Desenvolvedor Backend</p>
         </div>
       </div>
-      <div class="hero-side">
-        <p>Especialidades</p>
-        <div class="hero-tags">
-          <div class="skill">Python</div>
-          <div class="skill">Django</div>
-          <div class="skill">Docker</div>
-        </div>
+    </section>
+
+    <section class="skills-marquee" aria-label="Principais habilidades">
+      <div class="skills-marquee-track">
+        <ul class="skills-marquee-group">
+          <li class="skills-marquee-item">Python</li>
+          <li class="skills-marquee-item">Django</li>
+          <li class="skills-marquee-item">Flask</li>
+          <li class="skills-marquee-item">Docker</li>
+          <li class="skills-marquee-item">PostgreSQL</li>
+          <li class="skills-marquee-item">Redis</li>
+          <li class="skills-marquee-item">APIs REST</li>
+          <li class="skills-marquee-item">Celery</li>
+          <li class="skills-marquee-item">Web Scraping</li>
+          <li class="skills-marquee-item">Automação</li>
+          <li class="skills-marquee-item">JavaScript</li>
+        </ul>
+        <ul class="skills-marquee-group" aria-hidden="true">
+          <li class="skills-marquee-item">Python</li>
+          <li class="skills-marquee-item">Django</li>
+          <li class="skills-marquee-item">Flask</li>
+          <li class="skills-marquee-item">Docker</li>
+          <li class="skills-marquee-item">PostgreSQL</li>
+          <li class="skills-marquee-item">Redis</li>
+          <li class="skills-marquee-item">APIs REST</li>
+          <li class="skills-marquee-item">Celery</li>
+          <li class="skills-marquee-item">Web Scraping</li>
+          <li class="skills-marquee-item">Automação</li>
+          <li class="skills-marquee-item">JavaScript</li>
+        </ul>
       </div>
     </section>
 
     <!-- SOBRE MIM -->
     <section id="sobre" class="card" aria-labelledby="sobre-title">
       <h2 id="sobre-title">Sobre Mim</h2>
-      <p class="lead">Atuo profissionalmente com desenvolvimento backend desde 2021, trazendo uma visão prática de negócios, automação e tecnologia. Minha transição da gestão de serviços para a área de software aconteceu por conta do impacto direto que a tecnologia pode ter na rotina das pessoas e nas operações das empresas.</p>
-      <p class="lead" style="margin-top:10px">Hoje, meu trabalho concentra-se em criar APIs robustas, integrações confiáveis e fluxos automatizados com Python, Django, Flask e ferramentas modernas de infraestrutura.</p>
+      <p class="lead">Atuo profissionalmente com desenvolvimento de software desde 2021, com foco em <strong>backend, integrações, automação e desenvolvimento de soluções para empresas</strong>.</p>
+      <p class="lead">Trabalho com <strong>Python, Django, Flask e FastAPI</strong>, criando APIs, sistemas de gestão, plataformas SaaS e integrações com pagamentos, ERPs, WhatsApp, e-mail e outros serviços. Também tenho experiência com <strong>integrações ERP, suporte e manutenção de sistemas</strong>, além do desenvolvimento de <strong>sites e plataformas sob medida para diferentes tipos de negócio</strong>.</p>
+    </section>
+
+    <section id="contato" class="card quote-card" aria-labelledby="quote-title">
+      <div class="quote-copy">
+        <span class="quote-kicker">Vamos trabalhar juntos</span>
+        <h2 id="quote-title">Precisa de uma solução para o seu negócio?</h2>
+        <p class="lead">Conte brevemente o que você precisa e solicite um orçamento diretamente pelo WhatsApp.</p>
+      </div>
+      <a class="quote-button" href="https://wa.me/5575992494524?text=Ol%C3%A1%2C%20Eduardo!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Solicitar orçamento pelo WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.45L3 20.5l1.32-4.75A8.5 8.5 0 1 1 20.5 11.7Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M8.2 7.8c.2-.45.4-.46.73-.47h.62c.2 0 .4.07.5.38l.75 1.82c.08.25.04.43-.1.62l-.57.72c-.17.2-.14.4-.03.6.5.9 1.2 1.63 2.1 2.14.22.12.4.14.58-.07l.73-.85c.18-.2.4-.24.63-.14l1.78.84c.24.11.4.18.44.35.04.16.04.91-.4 1.64-.43.72-1.27 1.12-2.05 1.18-.56.04-1.28-.08-2.18-.47-.5-.22-4.25-1.57-5.76-5.23-.42-1.02-.04-2.3.23-2.86Z" fill="currentColor"></path>
+        </svg>
+        Pedir orçamento
+      </a>
     </section>
 
     <!-- HABILIDADES -->
     <section id="skills" class="card" aria-labelledby="skills-title">
       <h2 id="skills-title">Habilidades</h2>
       <p class="lead">Tecnologias que uso com frequência.</p>
-      <div class="skills-grid" style="margin-top:16px">
+      <div class="skills-grid">
         <!-- Exemplo usando CDN - você pode trocar para /assets/tech/python.svg -->
         <div class="skill">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo">
@@ -257,48 +293,19 @@
           <span>Flask</span>
         </div>
         <div class="skill">
-          <img src="https://api.iconify.design/tabler:robot.svg" alt="Ícone de robô para automação">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" alt="Automação e Web Scraping">
           <span>Web Scraping</span>
         </div>
       </div>
     </section>
-
-    <!-- BANCOS DE DADOS -->
-<section id="databases" class="card" aria-labelledby="databases-title">
-  <h2 id="databases-title">Bancos de Dados</h2>
-  <p class="lead">Bancos de dados que já utilizei em projetos.</p>
-  <div class="skills-grid" style="margin-top:16px">
-    <div class="skill">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL logo">
-      <span>PostgreSQL</span>
-    </div>
-    <div class="skill">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis logo">
-      <span>Redis</span>
-    </div>
-    <div class="skill">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite logo">
-      <span>SQLite</span>
-    </div>
-    <div class="skill">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB logo">
-      <span>MongoDB</span>
-    </div>
-    <div class="skill">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL logo">
-      <span>MySQL</span>
-    </div>
-  </div>
-</section>
-
 
     <!-- PROJETOS -->
     <section id="projetos" class="card" aria-labelledby="projetos-title">
       <h2 id="projetos-title">Projetos</h2>
 
       <div class="tabs" role="tablist" aria-label="Filtrar projetos">
-        <button data-tab="trabalhos" class="active" role="tab" aria-selected="true">Profissionais</button>
-        <button data-tab="pessoais" role="tab">Pessoais</button>
+        <button type="button" data-tab="trabalhos" class="active" role="tab" aria-selected="true">Profissionais</button>
+        <button type="button" data-tab="pessoais" role="tab" aria-selected="false">Pessoais</button>
       </div>
 
       <div id="projects-grid" class="projects-grid">
@@ -320,6 +327,20 @@
 
         <article class="project-card" data-type="trabalhos">
           <div class="thumb">
+            <img src="Barbisan.png" alt="Site da Clínica Barbisan Cardiologia" loading="lazy">
+          </div>
+          <div class="project-info">
+            <h3>Clínica Barbisan — Site institucional de cardiologia</h3>
+            <p>Site responsivo para apresentar a clínica, equipe, consultas e exames cardiológicos, com contato e agendamento integrado ao WhatsApp.</p>
+            <div class="techs"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsivo</span><span>SEO</span></div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://clinicabarbisan.com.br/" target="_blank" rel="noopener">Ver site</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-type="trabalhos">
+          <div class="thumb">
             <img src="/essence.png" alt="Imagem do Projeto 1 (substitua em /assets/projects/proj1.png)">
           </div>
           <div class="project-info">
@@ -329,6 +350,20 @@
             <div class="project-actions">
               <a class="btn btn-primary" href="https://essencesaudefeira.com/" target="_blank" rel="noopener">Ver Demo</a>
               <a class="btn btn-ghost" href="https://github.com/Duduedu9" target="_blank" rel="noopener">Código</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-type="trabalhos">
+          <div class="thumb">
+            <img src="Una.png" alt="Site da UNA Clínica de Psicologia" loading="lazy">
+          </div>
+          <div class="project-info">
+            <h3>UNA — Site institucional para clínica de psicologia</h3>
+            <p>Site responsivo para apresentar a clínica, profissionais e serviços de psicoterapia individual e de casal, com uma experiência acolhedora e contato facilitado.</p>
+            <div class="techs"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsivo</span><span>SEO</span></div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://una-clinica-psicologia.vercel.app/" target="_blank" rel="noopener">Ver site</a>
             </div>
           </div>
         </article>
@@ -350,7 +385,7 @@
         </article>
         <article class="project-card" data-type="pessoais">
           <div class="thumb">
-            <video src="/ZULN - Espelhos - Google Chrome 2025-09-16 13-00-50.mp4" autoplay muted loop playsinline></video>
+            <video src="/ZULN - Espelhos - Google Chrome 2025-09-16 13-00-50.mp4" muted loop playsinline preload="metadata" data-autoplay></video>
           </div>
           <div class="project-info">
             <h3>E-commerce de Espelhos Zuln</h3>
@@ -364,10 +399,10 @@
             </div>
           </div>
         </article>
-       
+
         <article class="project-card" data-type="pessoais">
           <div class="thumb">
-            <img src="/licita.png" ></img>
+            <img src="/licita.png" alt="Bot de notificações de licitações do PNCP" loading="lazy">
           </div>
           <div class="project-info">
             <h3>Bot de Notificação PNCP (API do Governo Federal)</h3>
@@ -384,7 +419,7 @@
 
                 <article class="project-card" data-type="trabalhos">
           <div class="thumb">
-            <img src="/LP.png" ></img>
+            <img src="/LP.png" alt="Landing page do CRM FalaTU" loading="lazy">
           </div>
           <div class="project-info">
             <h3>Landing Page para o CRM FalaTU</h3>
@@ -398,19 +433,7 @@
             </div>
           </div>
         </article>
-        
-      </div>
-    </section>
 
-    <!-- CONTATO / RODAPÉ -->
-    <section id="contato" class="card" aria-labelledby="contato-title" style="margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
-      <div>
-        <h2 id="contato-title">Quer conversar?</h2>
-        <p class="lead">Me mande um e-mail ou mensagem — sempre aberto a novos projetos e oportunidades.</p>
-      </div>
-      <div style="display:flex;gap:10px;align-items:center">
-        <a class="btn btn-primary" href="mailto:Eduardo_bizerra@hotmail.com">Enviar e-mail</a>
-        <a class="btn btn-ghost" href="https://wa.me/5575992494524" target="_blank">WhatsApp</a>
       </div>
     </section>
 
@@ -426,15 +449,23 @@
   (function(){
     const tabs = document.querySelectorAll('.tabs button');
     const cards = document.querySelectorAll('.project-card');
-    tabs.forEach(btn => btn.addEventListener('click', () => {
-      tabs.forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
+
+    const showProjects = btn => {
+      tabs.forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-selected', String(isActive));
+      });
       const tab = btn.dataset.tab;
       cards.forEach(c => {
         if(c.dataset.type === tab) c.style.display = '';
         else c.style.display = 'none';
       });
-    }));
+    };
+
+    tabs.forEach(btn => btn.addEventListener('click', () => showProjects(btn)));
+    const initialTab = document.querySelector('.tabs button.active') || tabs[0];
+    if(initialTab) showProjects(initialTab);
   })();
 
   // BOTÃO DE DOWNLOAD: tenta baixar /resume.pdf, se não existir, baixa o HTML atual
@@ -470,7 +501,66 @@
     }
   })();
 
-  // Pequena melhoria: se quiser adicionar projetos no futuro, mantenha a estrutura <article.project-card data-type="trabalhos|pessoais"> ...</script>
+  // Reproduz vídeos somente quando estiverem visíveis
+  (function(){
+    const videos = document.querySelectorAll('video[data-autoplay]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting && entry.target.offsetParent !== null){
+          entry.target.play().catch(() => {});
+        } else {
+          entry.target.pause();
+        }
+      });
+    }, {rootMargin:'100px'});
+
+    videos.forEach(video => observer.observe(video));
+  })();
+
+  // Mantém o item ativo da navbar sincronizado com a seção visível
+  (function(){
+    const navLinks = document.querySelectorAll('.top-nav a[href^="#"]');
+    const sections = [...navLinks]
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+    let ticking = false;
+
+    const setActiveLink = id => {
+      navLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${id}`;
+        link.classList.toggle('active', isActive);
+        if(isActive) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    const updateActiveLink = () => {
+      const marker = window.scrollY + 130;
+      const orderedSections = [...sections].sort((a, b) => a.offsetTop - b.offsetTop);
+      let current = orderedSections[0];
+
+      orderedSections.forEach(section => {
+        if(section.offsetTop <= marker) current = section;
+      });
+
+      if(current) setActiveLink(current.id);
+      ticking = false;
+    };
+
+    const requestUpdate = () => {
+      if(!ticking){
+        window.requestAnimationFrame(updateActiveLink);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', requestUpdate, {passive:true});
+    window.addEventListener('resize', requestUpdate);
+    navLinks.forEach(link => link.addEventListener('click', () => {
+      setActiveLink(link.getAttribute('href').slice(1));
+    }));
+    updateActiveLink();
+  })();
 </script>
 </body>
 </html>
